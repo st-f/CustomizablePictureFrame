@@ -8,7 +8,6 @@
         }
     </style>
 </head>
-<body>
 <h1>Customizable picture frame</h1>
 <p>Enter the dimensions of the frame in centimer. You can use one decimal for precision (so by increments of 0.1cm).</p>
 <form action="resizeObjWeb.php" method="post">
@@ -17,5 +16,32 @@
     <br><br>
     <input type="submit">
 </form>
+<br>
+<h2>Printing instructions</h2>
+<p>
+<ul>
+    <li>A ZIP file will be created, it contains 4 pieces generated to your dimensions and a file for the nail.
+    </li><br>
+    <li>Add the 4 pieces in your 3D printer software. Duplicate the nail 4 times.</li><br>
+    <li>Simplify3D will show an alert about the scale of the nail being wrong, you can ignore it (do not resize).
+        <br>If you need to change the size of the nail manually, it's a rectangle with a length of 9mm and a side of 2.7mm</li><br>
+    <li>This print requires a layer height of 0.2mm or less</li><br>
+    <li>You can print it as hollow as 7%, ideally with using an honeycomb pattern. The nails should be printed at 100%.</li><br>
+    <li>Use 5 top and bottom layers, and 2 perimeter shells at least</li><br>
+    <li>Temperature is quite important here as the tolerances are very small.
+        <br>Overheating the filament / bed will result in distortion, and pieces might not fit corrrectly.
+        <br>I get good results when using PLA at 190C with hairspray on glass (without bed heating).
+    </li><br>
+    <li>Print this set twice.</li><br>
+    <li>Make sure you have the assembly ready before adding the nails. Once put in place, you won't be able to remove
+        them.
+    </li>
+</ul>
+<p>
+    <br><br>
+<i>This is how the parts for a half frame should look like:</i>
+</p>
+<img src="pic1.jpg"/>
+</p>
 </body>
 </html>
