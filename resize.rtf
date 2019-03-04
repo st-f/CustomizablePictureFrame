@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 FiraCode-Regular;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red104\green26\blue29;
+\red13\green0\blue129;\red114\green121\blue129;}
+{\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\cssrgb\c49020\c15294\c15294;
+\cssrgb\c6275\c6275\c58039;\cssrgb\c52157\c54902\c57647;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww31760\viewh8320\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 PHP\
+\
+html form with model at 1cm and model at 2cm.\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+$handle = fopen(\cf4 "inputfile.txt"\cf2 , \cf4 "r"\cf2 );\
+\cf5 if\cf2  ($handle) \{\
+    \cf5 while\cf2  (($line = fgets($handle)) !== \cf5 false\cf2 ) \{\
+        \cf6 // process the line read.\cf2 \
+    \}\
+\
+    fclose($handle);\
+\} \cf5 else\cf2  \{\
+    \cf6 // error opening the file.\cf2 \
+\} 
+\f0\fs28 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+for each line starting with v, check value and echo value in 2cm - value in 1cm\
+\
+v -37.399995 0 10\
+\
+then / 10 (from centimer to mm)\
+\
+v -3.7399995 0 1\
+\
+create array of Vertice\
+\
+with array of Vertice, for each : echo \'93v\'94 for each Vertice value: echo value * size in mm\
+\
+save in obj file }
