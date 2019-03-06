@@ -15,11 +15,11 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
     $resizedLines = [];
     $lineIndex = 1;
     if ($in) {
-        $firstFile = "in-0cm.obj";
-        $secondFile = "in-1cm.obj";
+        $firstFile = "base-in-0cm.obj";
+        $secondFile = "base-in-1cm.obj";
     } else {
-        $firstFile = "out-0cm.obj";
-        $secondFile = "out-1cm.obj";
+        $firstFile = "base-out-0cm.obj";
+        $secondFile = "base-out-1cm.obj";
     }
     // parsing first file
     $handle = fopen($firstFile, "r");
