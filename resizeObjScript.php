@@ -15,8 +15,10 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
     $resizedLines = [];
     $lineIndex = 1;
     if ($in) {
-        $firstFile = "base-in-0cm.obj";
-        $secondFile = "base-in-1cm.obj";
+        /*$firstFile = "base-in-0cm.obj";
+        $secondFile = "base-in-1cm.obj";*/
+        $firstFile = "model-0cm-single.obj";
+        $secondFile = "model-1cm-single.obj";
     } else {
         $firstFile = "base-out-0cm.obj";
         $secondFile = "base-out-1cm.obj";
@@ -68,7 +70,7 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
             $floatvalOne = sprintf('%f', floatval($oneValues[$p]));
             $floatvalTwo = sprintf('%f', floatval($twoValues[$p]));
             $diff = ($floatvalTwo - $floatvalOne);
-            $widthFinal = $floatvalOne + ($width - $originalModelWidth) * $diff;
+            $widthFinal = $floatvalOne + ($width - $originalModelWidth) * $diff; //for half frames
             if ($diff != 0) {
                 $str .= sprintf('%f', $widthFinal) . " ";
             } else {
