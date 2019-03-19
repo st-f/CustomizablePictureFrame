@@ -17,8 +17,8 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
     if ($in) {
         /*$firstFile = "base-in-0cm.obj";
         $secondFile = "base-in-1cm.obj";*/
-        $firstFile = "model-0cm-single.obj";
-        $secondFile = "model-1cm-single.obj";
+        $firstFile = "model-single-0cm.obj";
+        $secondFile = "model-single-1cm.obj";
     } else {
         $firstFile = "base-out-0cm.obj";
         $secondFile = "base-out-1cm.obj";

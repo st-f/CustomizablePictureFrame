@@ -29,4 +29,4 @@ Development status
 ---
 - model-2cm.blend is not yet ready for custom resizing, only model-1cm is.
 
-
+![](pic1.jpg)
