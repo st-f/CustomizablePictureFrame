@@ -14,6 +14,7 @@
     <br/>It's recommended to use a maximum of one decimal (so by increments of 0.1cm).
     <br/>The maximum size is based on the print bed size: you can generate a frame in 4 parts if the length doesn't
     exceed the print bed size (at 45 degrees), otherwise parts will be split in half (so 8 parts in total).
+    <br/>For example, on a 20x20cm print bed, the maximum frame size is 27*2 = 52cm.
 </p>
 <form action="resizeObjWeb.php" method="post">
     width : <input type="text" name="width" value="10"><br>
@@ -29,10 +30,11 @@
 <h2>Printing instructions</h2>
 <p>
 <ul>
-    <li>A ZIP file will be created, it contains 4 pieces generated to your dimensions and a file for the nail.
+    <li>A ZIP file will be created, it contains 2 or 4 pieces (depending on the size and the size of the printer)
+        generated to your dimensions and a file for the nail.
     </li>
     <br>
-    <li>Add the 4 pieces in your slicer software. Duplicate the nail 3 times.</li>
+    <li>Add the pieces in your slicer software. Duplicate the nail as many times as needed.</li>
     <br>
     <li>Simplify3D will show an alert about the scale of the nail being wrong, you can ignore it (do not resize).
         <br>If you need to change the size of the nail manually, it's a rectangle with a length of 9mm and a side of
@@ -41,18 +43,20 @@
     <br>
     <li>This print requires a layer height of 0.2mm or less</li>
     <br>
-    <li>You can print it as hollow as 8%, below that prints might fail.</li>
-    <br>
-    <li>Use 5 top and bottom layers, and 5 perimeter shells</li>
+    <li>Use 5 top and bottom layers, and 2-3 perimeter shells. I found an 8% infill is a good compromise (using an
+        hexagonal pattern).
+    </li>
     <br>
     <li>Temperature is quite important here as the tolerances are very small.
         <br>Overheating the filament / bed will result in distortion, and pieces might not fit correctly.
-        <br>I get good results when using PLA at 190C with hairspray on glass (without bed heating).
+        <br>I get good results when using PLA at 190C with hairspray on glass - bed heating is recommended to avoid
+        distortion. I use 50C on the first 6 layers.
     </li>
     <br>
     <li>Print this set twice.</li>
     <br>
-    <li>When removing the pieces from the bed, lift them from their square side (angled corners are more fragile).
+    <li>When removing the pieces from the bed, lift them from their square side (angled corners are more fragile and can
+        easily break).
     </li>
     <br>
     <li>Depending on the material, it might be better to glue the parts, or not use the nails at all.
@@ -64,12 +68,14 @@
 </ul>
 <p>
     <br><br>
-    <i>This is how the parts for a half frame should look like for 4 parts (smaller than the print bed):</i>
+    <i>This is how the parts for a half frame should look like for 4 parts (smaller than the print bed) - a complete
+        frame needs two of those:</i>
 </p>
 <img src="pic1.jpg"/>
 <p>
     <br><br>
-    <i>This is how the parts for a half frame should look like for 8 parts (larger than the print bed):</i>
+    <i>This is how the parts for a half frame should look like for 8 parts (larger than the print bed) - a complete
+        frame needs two of those:</i>
 </p>
 <img src="pic2.jpg"/>
 </body>

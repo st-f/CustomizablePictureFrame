@@ -21,7 +21,8 @@
         die;
     }
     $hypotenuse = round(hypot($widthPrinter, $heightPrinter), 1) - 1;
-    echo "<h1>$width cm x $height cm picture frame, $widthPrinter cm x $heightPrinter cm print bed, $hypotenuse</h1>";
+    echo "<h1>$width cm x $height cm picture frame, $widthPrinter cm x $heightPrinter cm print bed</h1>";
+    //, max part length for printer: $hypotenuse cm
     $doubleHypotenuse = $hypotenuse * 2;
     if ($width > $doubleHypotenuse || $height > $doubleHypotenuse) {
         echo "<p>Values are too big. Please use a maximum of $doubleHypotenuse cm for both width and height for a frame in 8 parts, or $hypotenuse cm for a frame in 4 parts.</p>";
@@ -33,11 +34,15 @@
         echo "<br><br><a href='index.html'>Go back</a>";
         die;
     }
-    $useTwoPartsWidth =  $width > $hypotenuse;
+    $useTwoPartsWidth = $width > $hypotenuse;
     $useTwoPartsHeight = $height > $hypotenuse;
-    $zipFilename = "picture-frame-$width" . "x$height.zip";
-    $zipFilenameReverse = "picture-frame-$height" . "x$width.zip";
-    if (file_exists($zipFilename) || file_exists($zipFilenameReverse)) {
+    $zipFilename = "picture-frame-$width" . "x$height-$widthPrinter" . "x" . "$heightPrinter.zip";
+    $zipFilenamePrinterReverse = "picture-frame-$width" . "x$height-$heightPrinter" . "x" . "$widthPrinter.zip";
+    $zipFilenameReverse = "picture-frame-$height" . "x$width-$widthPrinter" . "x" . $heightPrinter . ".zip";
+    $zipFilenameReversePrinterReverse = "picture-frame-$height" . "x$width-$heightPrinter" . "x" . $widthPrinter . ".zip";
+
+    if (file_exists($zipFilename) || file_exists($zipFilenamePrinterReverse)
+        || file_exists($zipFilenameReverse)|| file_exists($zipFilenameReversePrinterReverse)) {
         echo "Files already generated.<br>";
         if (!file_exists($zipFilename) && file_exists($zipFilenameReverse)) {
             echo "<br><a href='$zipFilenameReverse'>Download all files</a>";
@@ -45,23 +50,27 @@
             echo "<br><a href='$zipFilename'>Download all files</a>";
         }
     } else {
-        $originalModelWidth = 1.7; //paper cut size in model in cm (1.2cm cube + 5mm margin inside corner)
+
         echo "Resizing picture frame : width: $width cm, height: $height cm...\n";
         if ($useTwoPartsWidth) {
+            $originalModelWidth = 1.7; //paper cut size in model in cm (1.2cm cube + 5mm margin inside corner)
             $file1 = "output-width-out.obj";
             $file2 = "output-width-in.obj";
             parseAndSave(0, $width / 2, $originalModelWidth, $file1, false);
             parseAndSave(1, $width / 2, $originalModelWidth, $file2, false);
         } else {
+            $originalModelWidth = 3.4; //paper cut size in model in cm (1.2cm cube + 5mm margin inside corner) * 2
             $file1 = "output-width.obj";
             parseAndSave(0, $width, $originalModelWidth, $file1, true);
         }
         if ($useTwoPartsHeight) {
+            $originalModelWidth = 1.7; //paper cut size in model in cm (1.2cm cube + 5mm margin inside corner)
             $file3 = "output-height-out.obj";
             $file4 = "output-height-in.obj";
             parseAndSave(0, $height / 2, $originalModelWidth, $file3, false);
             parseAndSave(1, $height / 2, $originalModelWidth, $file4, false);
         } else {
+            $originalModelWidth = 3.4; //paper cut size in model in cm (1.2cm cube + 5mm margin inside corner) * 2
             $file3 = "output-height.obj";
             parseAndSave(0, $height, $originalModelWidth, $file3, true);
         }

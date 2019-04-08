@@ -1,10 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: stef
- * Date: 2019-03-03
- * Time: 22:12
- * Compares two obj files and tries to resize based on the differences in values
+ * @param $in - in or out part if it's a double
+ * @param $width - part width
+ * @param $originalModelWidth - original model width
+ * @param $file - OBJ file
+ * @param $useSingle - use single parts or double
  */
 function parseAndSave($in, $width, $originalModelWidth, $file, $useSingle)
 {
