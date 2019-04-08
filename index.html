@@ -9,10 +9,19 @@
     </style>
 </head>
 <h1>Customizable picture frame</h1>
-<p>Enter the dimensions of the picture in centimeters. There's a 5mm margin all around (on the inside of the frame). You can use one decimal (so by increments of 0.1cm).</p>
+<p>Enter the dimensions of the picture in centimeters.
+    <br/>There's a 5mm margin all around (on the inside of the frame) included.
+    <br/>It's recommended to use a maximum of one decimal (so by increments of 0.1cm).
+    <br/>The maximum size is based on the print bed size: you can generate a frame in 4 parts if the length doesn't
+    exceed the print bed size (at 45 degrees), otherwise parts will be split in half (so 8 parts in total).
+</p>
 <form action="resizeObjWeb.php" method="post">
-    width : <input type="text" name="width"><br>
-    height: <input type="text" name="height"><br>
+    width : <input type="text" name="width" value="10"><br>
+    height: <input type="text" name="height" value="15"><br>
+    <br>
+    <p>Enter the dimensions of your printer print bed in cm.</p>
+    width : <input type="text" name="printerWidth" value="20"><br>
+    height: <input type="text" name="printerHeight" value="20"><br>
     <br><br>
     <input type="submit" value="Generate frame">
 </form>
@@ -21,29 +30,47 @@
 <p>
 <ul>
     <li>A ZIP file will be created, it contains 4 pieces generated to your dimensions and a file for the nail.
-    </li><br>
-    <li>Add the 4 pieces in your slicer software. Duplicate the nail 3 times.</li><br>
+    </li>
+    <br>
+    <li>Add the 4 pieces in your slicer software. Duplicate the nail 3 times.</li>
+    <br>
     <li>Simplify3D will show an alert about the scale of the nail being wrong, you can ignore it (do not resize).
-        <br>If you need to change the size of the nail manually, it's a rectangle with a length of 9mm and a side of 2.7mm</li><br>
-    <li>This print requires a layer height of 0.2mm or less</li><br>
-    <li>You can print it as hollow as 8%, below that prints might fail.</li><br>
-    <li>Use 5 top and bottom layers, and 5 perimeter shells</li><br>
+        <br>If you need to change the size of the nail manually, it's a rectangle with a length of 9mm and a side of
+        2.7mm
+    </li>
+    <br>
+    <li>This print requires a layer height of 0.2mm or less</li>
+    <br>
+    <li>You can print it as hollow as 8%, below that prints might fail.</li>
+    <br>
+    <li>Use 5 top and bottom layers, and 5 perimeter shells</li>
+    <br>
     <li>Temperature is quite important here as the tolerances are very small.
-        <br>Overheating the filament / bed will result in distortion, and pieces might not fit corrrectly.
+        <br>Overheating the filament / bed will result in distortion, and pieces might not fit correctly.
         <br>I get good results when using PLA at 190C with hairspray on glass (without bed heating).
-    </li><br>
-    <li>Print this set twice.</li><br>
-    <li>When removing the pieces from the bed, lift them from their square side (the angled corners are more fragile).
-    </li><br>
+    </li>
+    <br>
+    <li>Print this set twice.</li>
+    <br>
+    <li>When removing the pieces from the bed, lift them from their square side (angled corners are more fragile).
+    </li>
+    <br>
+    <li>Depending on the material, it might be better to glue the parts, or not use the nails at all.
+    </li>
+    <br>
     <li>Make sure you have the assembly ready before adding the nails. Once put in place, you won't be able to remove
         them.
     </li>
 </ul>
 <p>
     <br><br>
-<i>This is how the parts for a half frame should look like:</i>
+    <i>This is how the parts for a half frame should look like for 4 parts (smaller than the print bed):</i>
 </p>
 <img src="pic1.jpg"/>
+<p>
+    <br><br>
+    <i>This is how the parts for a half frame should look like for 8 parts (larger than the print bed):</i>
 </p>
+<img src="pic2.jpg"/>
 </body>
 </html>

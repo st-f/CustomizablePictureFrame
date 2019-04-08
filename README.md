@@ -16,9 +16,6 @@ Export from blender
 - Remember to flatten models before exporting!
 - Selection only / Apply modifiers / Write normals / Triangulate faces
 
-
-Development status
----
-- model-2cm.blend is not yet ready for custom resizing, only model-1cm is.
-
 ![](pic1.jpg)
+
+![](pic2.jpg)

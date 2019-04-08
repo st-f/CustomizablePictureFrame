@@ -6,7 +6,7 @@
  * Time: 22:12
  * Compares two obj files and tries to resize based on the differences in values
  */
-function parseAndSave($in, $width, $originalModelWidth, $file)
+function parseAndSave($in, $width, $originalModelWidth, $file, $useSingle)
 {
     $lines = [];
     $vLinesNumbers = [];
@@ -14,14 +14,17 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
     $twoCmValues = [];
     $resizedLines = [];
     $lineIndex = 1;
-    if ($in) {
-        /*$firstFile = "base-in-0cm.obj";
-        $secondFile = "base-in-1cm.obj";*/
+    if ($useSingle) {
         $firstFile = "model-single-0cm.obj";
         $secondFile = "model-single-1cm.obj";
     } else {
-        $firstFile = "base-out-0cm.obj";
-        $secondFile = "base-out-1cm.obj";
+        if ($in) {
+            $firstFile = "base-in-0cm.obj";
+            $secondFile = "base-in-1cm.obj";
+        } else {
+            $firstFile = "base-out-0cm.obj";
+            $secondFile = "base-out-1cm.obj";
+        }
     }
     // parsing first file
     $handle = fopen($firstFile, "r");
@@ -59,7 +62,6 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
         echo "ERROR WHILE PARSING FILE";
     }
     //moving vertices
-
     for ($i = 0; $i < sizeof($oneCmValues); $i++) {
         $oneValue = $oneCmValues[$i];
         $oneValues = preg_split("/ +/", $oneValue);
@@ -90,6 +92,6 @@ function parseAndSave($in, $width, $originalModelWidth, $file)
         array_push($finalArray, $str);
     }
     file_put_contents($file, implode("\n", $finalArray));
-    echo "<br/>Resizing picture frame : done, saved in $file\n";
+    echo "<br/>Resizing model done, saved in $file\n";
 }
 
